@@ -4,14 +4,25 @@ import React from 'react'
 import "./search.css"
 import { Button } from "@material-ui/core";
 import {useState} from "react"
+import { useHistory } from 'react-router-dom';
+import { actionTypes } from './reducer';
+import { useStateValue } from './stateprovider';
 
 
-function Search() {
+
+function Search({hideButton= false}) {
     const [input, setInput] = useState('')
-
+    const history=useHistory()
+    const [state,dispatch]= useStateValue()
     const search =(e) => {
+
         e.preventDefault()
         console.log(input)
+        history.push('/search')
+        dispatch({
+            type:actionTypes.SET_SEARCH_TERM,
+            term:input
+        })
     }
     return (
         <div className="search">
@@ -20,10 +31,17 @@ function Search() {
                     <input value={input} onChange={e=> setInput(e.target.value)}/>
                     <MicIcon />
             </div>
-             <div className="search__buttons">
+            {!hideButton ?  (
+                 <div className="search__buttons">
           <Button onClick={search} variant="outlined">Google Search</Button>
           <Button variant="outlined">I'm Feeling Lucky</Button>
         </div>
+            ) : ( 
+                 <div className="search__buttons">
+          <Button className="search__buttonsHidden" onClick={search} variant="outlined">Google Search</Button>
+          <Button className="search__buttonsHidden" variant="outlined">I'm Feeling Lucky</Button>
+        </div>
+            )}
         </div>
     )
 }
