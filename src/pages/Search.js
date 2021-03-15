@@ -18,14 +18,15 @@ function Search({hideButton= false}) {
 
         e.preventDefault()
         console.log(input)
-        history.push('/search')
+   
         dispatch({
             type:actionTypes.SET_SEARCH_TERM,
             term:input
         })
+     history.push('/search')
     }
     return (
-        <div className="search">
+        <form className="search">
             <div className="search__input">
                 <SearchIcon className="search__inputIcon"/ >
                     <input value={input} onChange={e=> setInput(e.target.value)}/>
@@ -33,16 +34,16 @@ function Search({hideButton= false}) {
             </div>
             {!hideButton ?  (
                  <div className="search__buttons">
-          <Button onClick={search} variant="outlined">Google Search</Button>
+          <Button type="submit" onClick={search} variant="outlined">Google Search</Button>
           <Button variant="outlined">I'm Feeling Lucky</Button>
         </div>
             ) : ( 
                  <div className="search__buttons">
-          <Button className="search__buttonsHidden" onClick={search} variant="outlined">Google Search</Button>
+          <Button className="search__buttonsHidden" type="submit" onClick={search} variant="outlined">Google Search</Button>
           <Button className="search__buttonsHidden" variant="outlined">I'm Feeling Lucky</Button>
         </div>
             )}
-        </div>
+        </form>
     )
 }
 
