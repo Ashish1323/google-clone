@@ -20,15 +20,16 @@ function SearchPage() {
     const {data} = useGoogleSearch(state.term)
     console.log(data)
     return (
+      
         <div className="searchPage">
-            <div className="searchPage__header">
         <Link to="/">
           <img
-            className="searchPage__logo"
+            className="searchPage__logo "
             src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
             alt=""
           />
         </Link>
+        <div className="searchPage__header">
           <div class="searchPage__headerBody">
           <Search hideButton />
           <div class="searchPage__options">
@@ -46,24 +47,12 @@ function SearchPage() {
                 <Link to="/all">Images</Link>
               </div>
               <div class="searchPage__option">
-                <LocalOfferIcon />
-                <Link to="/all">shopping</Link>
-              </div>
-              <div class="searchPage__option">
                 <RoomIcon />
                 <Link to="/all">maps</Link>
               </div>
               <div class="searchPage__option">
                 <MoreVertIcon />
                 <Link to="/all">more</Link>
-              </div>
-            </div>
-            <div class="searchPage__optionsRight">
-              <div class="searchPage__option">
-                <Link to="/settings">Settings</Link>
-              </div>
-              <div class="searchPage__option">
-                <Link to="/tools">Tools</Link>
               </div>
             </div>
           </div>

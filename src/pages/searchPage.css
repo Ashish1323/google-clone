@@ -1,18 +1,21 @@
 .searchPage__header {
   display: flex;
   position: sticky;
-  top: 0;
+  top: 2;
   background-color: white;
   z-index: 100;
   align-items: flex-start;
   padding: 30px;
+  padding-top: 0;
   border-bottom: 1px solid lightgray;
 }
 
 .searchPage__logo {
-  object-fit: contain;
   height: 50px;
-  margin-right: 50px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .searchPage__headerBody > .search > .search__input {
@@ -67,9 +70,8 @@
 }
 
 .searchPage__results {
-  max-width: 650px;
   margin-top: 20px;
-  margin-left: 240px;
+  margin-left: 20px;
   margin-bottom: 100px;
 }
 
